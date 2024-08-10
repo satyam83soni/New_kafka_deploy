@@ -16,10 +16,9 @@ import DiceStats from './model/dicestats.js';
 const app = express();
 const server = createServer(app);
 const io = new Server(server, {
-  
   cors: {
-    origin: '*', // Allows requests from any origin
-    credentials: true, // Allows cookies and authentication information to be sent with requests
+    origin: ["http://localhost:5173", "http://localhost:4173", process.env.CLIENT_URL],
+    methods: ["GET", "POST", "DELETE", "OPTIONS"],
   }
 });
 
