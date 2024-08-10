@@ -17,7 +17,7 @@ const app = express();
 const server = createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: ["http://localhost:5173", "http://localhost:4173", process.env.CLIENT_URL],
+    origin: ["http://localhost:5173", "http://localhost:4173", "http://kafkadev-stream-bucket.s3-website.ap-south-1.amazonaws.com"],
     methods: ["GET", "POST", "DELETE", "OPTIONS"],
   }
 });
@@ -27,7 +27,7 @@ connectDB(process.env.MONGO_URL);
 app.set("io", io);
 
 app.use(cors({
-  origin: ["http://localhost:5173", "http://localhost:4173", process.env.CLIENT_URL],
+  origin: ["http://localhost:5173", "http://localhost:4173", "http://kafkadev-stream-bucket.s3-website.ap-south-1.amazonaws.com"],
   credentials: true,
 }));
 
